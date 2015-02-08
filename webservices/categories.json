@@ -1,0 +1,31 @@
+{
+
+"categories": [
+{
+"name": "ASD",
+"image": "assets/img/img1.jpg",
+"description": "sdfsdfsdfsdfsdf"
+},
+
+{
+"name": "Български",
+"image": "assets/img/img1.jpg",
+"description": ""
+},
+
+{
+"name": "География",
+"image": "assets/img/img1.jpg",
+"description": ""
+},
+
+{
+"name": "История",
+"image": "assets/img/img1.jpg",
+"description": ""
+}
+
+]
+
+}
+
