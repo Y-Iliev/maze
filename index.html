@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 
 <head>
-    <title></title>
+    <meta charset="utf-8">
+    <title>Maze game</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/maze.css" rel="stylesheet">
 
     <script src="js/vendor/jquery-1.11.0.min.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/underscore-min.js"></script>
+    <script src="js/maze.js"></script>
     <script src="js/main.js"></script>
 
 </head>
@@ -16,34 +21,65 @@
 
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-offset-4 col-lg-4 login-container">
+<div id="maze-container">
 
-                <form role="form">
-                    <div class="form-group">
-                        <label for="user-name">Username</label>
-                        <input type="email" class="form-control" id="user-name" placeholder="Username">
+
+</div>
+<div class="container">
+
+    <div class="row main-container">
+        <!--
+                <div class="col-lg-6">
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="red-column small-column">Първо малко</div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="red-column small-column">Второ малко</div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="red-column small-column">Под първо малко</div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="green-column small-column">Под второ малко</div>
+                        </div>
                     </div>
+                </div>
 
-                    <button id="login-button" type="submit" class="btn btn-default">Login</button>
-                    <button id="register-button" type="submit" class="btn btn-default">Register</button>
-                </form>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bigger-column blue-column"> Голямо в дясно</div>
+                        </div>
+                    </div>
+                </div>
 
-            </div>
-        </div>
+                <div class="col-lg-12">
+                    <div class="col-lg-12 small-column yellow-column">Широко малко най-отдолу</div>
+                </div>
+         -->
+
     </div>
+
+
+</div>
 
 
 </body>
 
 
+<!--
+Shortcuts
 
 
+ctrl + /           => open a comment
+ctrl + d           => duplicate line of code
+ctrl + r           => find & replace
+ctrl + shift + f   => find in project/folder or file
+-->
 
 </html>
 

@@ -1,0 +1,9 @@
+#maze-container .w{
+    background:yellowgreen;
+    float:left;
+}
+
+#maze-container .b{
+    background:#222;
+    float:left;
+}
