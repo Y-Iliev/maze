@@ -8,13 +8,25 @@ $(document).ready(function () {
       //  renderSmallColumns();
     });
 
+    $(".start-game").click(function(){
+        Maze.generate("maze-container",rowCount,columnCount,1);
+        $('#maze-container').find('.r').css({'width': rowWidthPx, 'height': rowHeight });
+        $('#maze-container').find('.b').css({'width': boxSize, 'height': boxSize });
+        $('#maze-container').find('.w').css({'width': boxSize, 'height': boxSize });
+        $("#menu").hide();
+        $("#game").show();
+    });
 
+    $(".quit-game").click(function(){
+        $("#menu").show();
+        $("#game").hide();
+    });
 
 });
-var rowCount = 5;
-var columnCount = 5;
+var rowCount = 10;
+var columnCount = 10;
 
-var boxSize  = 50;
+var boxSize  = 25;
 
 var rowWidthPx = (columnCount * 2 + 1)* boxSize;
 var rowHeight = boxSize;
@@ -28,10 +40,7 @@ var names = ["Първа колонка", "Втора колонка", "Трет
 
 
 function init(callback){
-    Maze.generate("maze-container",rowCount,columnCount,1);
-    $('#maze-container').find('.r').css({'width': rowWidthPx, 'height': rowHeight });
-    $('#maze-container').find('.b').css({'width': boxSize, 'height': boxSize });
-    $('#maze-container').find('.w').css({'width': boxSize, 'height': boxSize });
+
 
     console.log('Initialized...', 'Small Column Size: ', smallColumnSize);
     if(callback){
@@ -40,21 +49,21 @@ function init(callback){
 }
 
 
-function renderSmallColumns(){
-
-    var $container = $('.main-container')
-
-    // Underscore each -> борави с колекции и масиви
-    _.each(names, function(valueInNames, index){
-        $container.append(smallColumn);
-        console.log(valueInNames, index)
-    })
-
-    // jQuery each -> борави с преселектирани HTML елементи
-    $container.find('.small-column').each( function (index, smallColumn){
-        console.log( index, smallColumn);
-        $(smallColumn).html(names[index])
-    })
-
-    renderedSmallColumns = true;
-}
+//function renderSmallColumns(){
+//
+//    var $container = $('.main-container')
+//
+//    // Underscore each -> борави с колекции и масиви
+//    _.each(names, function(valueInNames, index){
+//        $container.append(smallColumn);
+//        console.log(valueInNames, index)
+//    })
+//
+//    // jQuery each -> борави с преселектирани HTML елементи
+//    $container.find('.small-column').each( function (index, smallColumn){
+//        console.log( index, smallColumn);
+//        $(smallColumn).html(names[index])
+//    })
+//
+//    renderedSmallColumns = true;
+//}

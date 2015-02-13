@@ -1,23 +1,42 @@
-.main-container {
-
-    background: lightyellow;
-    min-height: 800px;
+.test-box{
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+    background: #408040;
+    color: white;
+    text-align: center;
 }
 
-.small-column {
-    height:300px;
-    border: 1px solid black;
-}
-.bigger-column{
-    height:600px;
+.test-box:hover{
+    background: #80c880;
 }
 
+.test-box span{
+    height: 200px;
+    line-height: 200px;
+    vertical-align: middle;
 
-
-.box {
-    top:0;
-    left:0;
-    position:absolute;
 }
 
+.small-box {
+    height: 200px;
+}
+
+.bigger-box{
+    height:400px;
+}
+
+.column{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#menu{
+    margin-top: 50px;
+}
+
+
+#game{
+    display: none;
+}
 
