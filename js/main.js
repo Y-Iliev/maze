@@ -11,8 +11,9 @@ $(document).ready(function () {
     $(".start-game").click(function(){
         Maze.generate("maze-container",rowCount,columnCount,1);
         $('#maze-container').find('.r').css({'width': rowWidthPx, 'height': rowHeight });
-        $('#maze-container').find('.b').css({'width': boxSize, 'height': boxSize });
-        $('#maze-container').find('.w').css({'width': boxSize, 'height': boxSize });
+        $('#maze-container').find('.b, .w').css({'width': boxSize, 'height': boxSize, 'background-size': boxSize+'px '+boxSize+'px' });
+        $('#maze-container').find('.blockMaze').append('<div class="player"></div>');
+        $('#maze-container').find('.player').css({'width': boxSize, 'height': boxSize, 'top': boxSize+20, 'margin-left': 0, 'background-size': boxSize+'px '+boxSize+'px' });
         $("#menu").hide();
         $("#game").show();
     });
@@ -47,6 +48,29 @@ function init(callback){
         callback();
     }
 }
+
+window.addEventListener('keyup', function(event) { Key.onKeyup(event); }, false);
+window.addEventListener('keydown', function(event) { Key.onKeydown(event); }, false);
+
+window.addEventListener('keydown', function(event) {
+    switch (event.keyCode) {
+        case 37: // Left
+            //$('#maze-container').find('.player').css('left', '-=1');
+            break;
+
+        case 38: // Up
+            $('#maze-container').find('.player');
+            break;
+
+        case 39: // Right
+            $('#maze-container').find('.player').css({'margin-left': "+=3"});
+            break;
+
+        case 40: // Down
+            $('#maze-container').find('.player');
+            break;
+    }
+}, false);
 
 
 //function renderSmallColumns(){

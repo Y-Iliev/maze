@@ -1,9 +1,19 @@
 #maze-container .w{
-    background:yellowgreen;
-    float:left;
+    background: yellowgreen;
+    background-image: url("../img/stone_bricks.png");
+    float: left;
+    z-index: 1;
 }
 
 #maze-container .b{
-    background:#222;
-    float:left;
+    background: #222;
+    background-image: url("../img/grass_top.png");
+    float: left;
+    z-index: 1;
+}
+
+#maze-container .player{
+    background-image: url("../img/Duane_Front.gif");
+    position: absolute;
+    z-index: 2;
 }
