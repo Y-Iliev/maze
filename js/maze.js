@@ -142,17 +142,7 @@ Maze = (function() {
             if (z > 0) {
                 html += " style='display: none;'";
             }
-            html += ">\n<div class='nav'>";
-            html += "Level " + (z + 1) + ": ";
-            if (z > 0) {
-                html += "<a href='#' onclick='showLevel(" + (z - 1) + "); hideLevel(" + z + ");'>down</a>";
-            }
-            if ((0 < z && z < this.depth - 1)) {
-                html += " | ";
-            }
-            if (z < this.depth - 1) {
-                html += "<a href='#' onclick='showLevel(" + (z + 1) + "); hideLevel(" + z + ");'>up</a>";
-            }
+
             html += "</div>\n<div class='r'>";
             for (x = 0, _ref2 = this.width * 2 + 1; 0 <= _ref2 ? x < _ref2 : x > _ref2; 0 <= _ref2 ? x++ : x--) {
                 html += "<div class='w'></div>";
