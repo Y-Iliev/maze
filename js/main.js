@@ -12,9 +12,15 @@ $(document).ready(function () {
         Maze.generate("maze-container",rowCount,columnCount,1);
         $('#maze-container').find('.r').css({'width': rowWidthPx, 'height': rowHeight });
         $('#maze-container').find('.b, .w').css({'width': boxSize, 'height': boxSize, 'background-size': boxSize+'px '+boxSize+'px' });
+        $('#maze-container').find('.b').last().addClass('final');
+        $('#maze-container').find('.final').addClass('w');
+        $('#maze-container').find('.final').removeClass('b');
         $('#maze-container').find('.blockMaze').append('<div class="player"></div>');
         $('#maze-container').find('.player').css({'width': boxSize, 'height': boxSize, 'top': boxSize, 'left': '0px', 'background-size': boxSize+'px '+boxSize+'px' });
-        placeLetters();
+        $.getJSON("webservices/words.json", function(data){
+            letters = data.data[Math.floor((Math.random() * data.data.length))].split("");
+            placeLetters();
+        });
         $("#menu").hide();
         $("#game").show();
     });
@@ -38,8 +44,8 @@ var renderedSmallColumns = false;
 var smallColumnSize = 300;
 var names = ["Първа колонка", "Втора колонка", "Трета колонка", "Четвърта колонка"];
 
+var letters;
 var collectedLetters = 0;
-
 
 
 
@@ -72,7 +78,6 @@ window.setInterval(function () {
 
 
 function placeLetters(){
-    var letters = ['A','B','C'];
     var random;
     var $blockList = $('#maze-container').find('.b');
     for(i = 0; i< letters.length; i++){
@@ -102,11 +107,24 @@ function checkLetter(){
             $letterList.eq(i-1).html('');
         }
     }
+    if(collectedLetters == letters.length){
+        if($('#maze-container').find('.exit').length == 0) {
+            $('#maze-container').find('.final').addClass('b');
+            $('#maze-container').find('.final').removeClass('w');
+            $('#maze-container').find('.blockMaze').append('<div class="exit"></div>');
+            $('#maze-container').find('.exit').css({
+                'width': boxSize,
+                'height': boxSize,
+                'top': (rowCount * 2 - 1) * boxSize,
+                'left': (columnCount * 2) * boxSize,
+                'background-size': boxSize + 'px ' + boxSize + 'px'
+            });
+        }
+    }
 }
 
 function checkExit(){
     var $exitBox = $('#maze-container').find('.exit');
-    console.log($exitBox.position());
     if($('#maze-container').find('.player').position().left == $exitBox.position().left
         && $('#maze-container').find('.player').position().top == $exitBox.position().top) {
         $(".quit-game").click();
@@ -138,17 +156,7 @@ window.addEventListener('keydown', function(e) {
             if(!checkCollision()) $player.css({'top': "-="+boxSize});
             break;
     }
-    if(collectedLetters == 3){
-        if($('#maze-container').find('.exit')) {
-            $('#maze-container').find('.blockMaze').append('<div class="exit"></div>');
-            $('#maze-container').find('.exit').css({
-                'width': boxSize,
-                'height': boxSize,
-                'top': (rowCount * 2 - 1) * boxSize,
-                'left': (columnCount * 2) * boxSize,
-                'background-size': boxSize + 'px ' + boxSize + 'px'
-            });
-        }
+    if(collectedLetters == letters.length){
         checkExit();
     } else
         checkLetter();

@@ -10,6 +10,12 @@
     background-image: url("../img/grass_top.png");
     float: left;
     z-index: 1;
+    text-align: center;
+    line-height: 25px;
+}
+
+#maze-container .letter{
+    background-image: url("../img/scroll_grass.png");
 }
 
 #maze-container .player{
