@@ -9,6 +9,7 @@ $(document).ready(function () {
     });
 
     $(".start-game").click(function(){
+        collectedLetters = 0;
         Maze.generate("maze-container",rowCount,columnCount,1);
         $('#maze-container').find('.r').css({'width': rowWidthPx, 'height': rowHeight });
         $('#maze-container').find('.b, .w').css({'width': boxSize, 'height': boxSize, 'background-size': boxSize+'px '+boxSize+'px' });
@@ -45,7 +46,7 @@ var smallColumnSize = 300;
 var names = ["Първа колонка", "Втора колонка", "Трета колонка", "Четвърта колонка"];
 
 var letters;
-var collectedLetters = 0;
+var collectedLetters;
 
 
 
