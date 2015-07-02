@@ -5,21 +5,36 @@
     background: #408040;
     color: white;
     text-align: center;
+    cursor: pointer;
 }
 
 .test-box:hover{
     background: #80c880;
+
+}.blue-box{
+     -moz-box-shadow:    inset 0 0 10px #000000;
+     -webkit-box-shadow: inset 0 0 10px #000000;
+     box-shadow:         inset 0 0 10px #000000;
+     background: #404080;
+     color: white;
+     text-align: center;
+     display: none;
+     cursor: pointer;
+ }
+
+.blue-box:hover{
+    background: #8080c8;
 }
 
-.test-box span{
-    height: 200px;
-    line-height: 200px;
+.test-box span, .blue-box span{
+    height: 50px;
+    line-height: 50px;
     vertical-align: middle;
 
 }
 
 .small-box {
-    height: 200px;
+    height: 50px;
 }
 
 .bigger-box{
@@ -35,8 +50,158 @@
     margin-top: 50px;
 }
 
-
 #game{
+    margin-top: 50px;
     display: none;
 }
 
+#results{
+    margin-top: 50px;
+    background: gray;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    font-size: 30px;
+    display: none;
+    display: none;
+}
+
+#results .left{
+    width: calc(50% - 10px);
+    margin-right: 10px;
+    float: left;
+    text-align: right;
+}
+
+#results .right{
+    width: calc(50% - 10px);
+    margin-left: 10px;
+    float: left;
+    text-align: left;
+}
+
+#results .result-button{
+    font-size: 14px;
+    width: 300px;
+    margin: 0 auto;
+    clear: both;
+    text-align: center;
+}
+
+#maze-container{
+    float: left;
+    position: relative;
+}
+
+#maze-menu{
+    float: left;
+    background: yellowgreen;
+    padding: 10px;
+}
+
+#dev-tools{
+    float: left;
+    position: absolute;
+    z-index: 9999;
+    opacity: 0.5;
+}
+
+#maze-vars{
+    padding: 10px;
+    display: none;
+    background: #FFF;
+}
+
+#noclip-yes{
+    padding: 10px;
+    display: none;
+    background: yellow;
+    width: 97px;
+}
+
+.quit-game{
+    clear: left;
+    color: white;
+    cursor: pointer;
+}
+
+#maze-container .w{
+    background: yellowgreen;
+    background-image: url("../img/stone_bricks.png");
+    float: left;
+    z-index: 1;
+}
+
+#maze-container .b{
+    background: #222;
+    background-image: url("../img/grass_top.png");
+    float: left;
+    z-index: 1;
+    text-align: center;
+    line-height: 25px;
+}
+
+#maze-container .letter{
+    background-image: url("../img/scroll_grass.png");
+}
+
+#maze-container .player{
+    position: absolute;
+    z-index: 3;
+}
+
+#maze-container .secret-exit{
+    position: absolute;
+    background: green;
+}
+
+#maze-container .walk-left{
+    background-image: url("../img/Duane_Walk_Left.gif");
+}
+
+#maze-container .stand-left{
+    background-image: url("../img/Duane_Left.gif");
+}
+
+#maze-container .walk-up{
+    background-image: url("../img/Duane_Walk_Back.gif");
+}
+
+#maze-container .stand-up{
+    background-image: url("../img/Duane_Back.gif");
+}
+
+#maze-container .walk-right{
+    background-image: url("../img/Duane_Walk_Left.gif");
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+#maze-container .stand-right{
+    background-image: url("../img/Duane_Left.gif");
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+#maze-container .walk-down{
+    background-image: url("../img/Duane_Walk_Front.gif");
+}
+
+#maze-container .stand-down{
+    background-image: url("../img/Duane_Front.gif");
+}
+
+#maze-container .score-pop-up{
+    position: absolute;
+    z-index: 4;
+}
+
+#maze-container .exit{
+    background-image: url("../img/warp.png");
+    position: absolute;
+    z-index: 2;
+}
